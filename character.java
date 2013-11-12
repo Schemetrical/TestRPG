@@ -17,7 +17,6 @@ public class character
     public head wornHelmet;
     public chest wornChestPlate;
     public legs wornPants;
-    private int index = 0;
     
     public character(String name, int health, int strength, int defense, int dexterity, int luck, int wisdom, int level)
     {
@@ -72,18 +71,16 @@ public class character
     public void addItem(item a){
     
         inventory.add(a);
-        index++;
         
     }
     
     public void removeItem(String a) {
         
-        for(int i = 0; i<index;i++){
+        for(int i = 0; i < inventory.size(); i++){
             
             if(inventory.get(i).name.equals(a)){
                 
                 inventory.remove(i);
-                index--;
                 break;
                 
             }
@@ -95,8 +92,6 @@ public class character
     public void removeItem(int a) {
         
         inventory.remove(a);
-        index--;
-        
     }
     
     public void levelUp() {
