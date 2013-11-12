@@ -30,14 +30,12 @@ public class character
     }
     public void takeDamage(int damage)
     {
-        loseHealth((int)(Math.max(((1.0-(wornHelmet.DR + wornChestPlate.DR + wornPants.DR))*damage)-(wornHelmet.DT + wornChestPlate.DT + wornPants.DT), 2.0)));
+        loseHealth((int)(Math.max(((1-(wornHelmet.DR + wornChestPlate.DR + wornPants.DR))*damage)-(wornHelmet.DT + wornChestPlate.DT + wornPants.DT), 2)));
     }
     public int giveDamage()
     {
-        int calculatedDamage = (int)((1.0 + (strength/200.0)) + wieldedWeapon.damage); 
-        if(Math.random() <= luck/400.0 + wieldedWeapon.criticalChance)
-            return (int)(calculatedDamage * 1.5);
-        return calculatedDamage;
+        // need to add something to calculate this value using player stats and critical stat from weapon....
+        return wieldedWeapon.damage;
     }
     public boolean isDead()
     {
