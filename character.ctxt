@@ -6,9 +6,8 @@ comment1.target=void\ loseHealth(int)
 comment2.params=damage
 comment2.target=void\ takeDamage(int)
 comment3.params=
-comment3.target=int\ giveDamage()
+comment3.target=boolean\ isDead()
+comment3.text=\n\ \ \ \ public\ int\ giveDamage()\n\ \ \ \ {\n\ \ \ \ \ \ \ \ int\ calculatedDamage\ \=\ (int)((1.0\ +\ (strength/200.0))\ +\ wieldedWeapon.damage);\ \n\ \ \ \ \ \ \ \ if(Math.random()\ <\=\ luck/400.0\ +\ wieldedWeapon.criticalChance)\n\ \ \ \ \ \ \ \ \ \ \ \ return\ (int)(calculatedDamage\ *\ 1.5);\n\ \ \ \ \ \ \ \ return\ calculatedDamage;\n\ \ \ \ }\n
 comment4.params=
-comment4.target=boolean\ isDead()
-comment5.params=
-comment5.target=void\ die()
-numComments=6
+comment4.target=void\ die()
+numComments=5

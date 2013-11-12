@@ -27,8 +27,8 @@ public class combatTester
         System.out.println("BATTLE START: " + a.name + " has " + a.health + " HP, " + b.name + " has " + b.health + " HP");
         while (true)
         {
-            damage = a.giveDamage();
-            b.takeDamage(damage);
+            damage = 1;
+            //b.takeDamage(a.attack());
             System.out.println(a.name + " hit " + b.name + " for " + damage + " damage, " + b.name + " has " + (b.wornHelmet.DT + b.wornChestPlate.DT + b.wornPants.DT) + " DT and " + (b.wornHelmet.DR + b.wornChestPlate.DR + b.wornPants.DR) + " DR");
             System.out.println(a.name + " has " + a.health + " HP, " + b.name + " has " + b.health + " HP");
             if (b.isDead())
@@ -36,8 +36,8 @@ public class combatTester
                 System.out.println(a.name + " killed " + b.name + " with " + a.health + " HP Left.");
                 break;
             }
-            damage = b.giveDamage();
-            a.takeDamage(damage);
+            damage = 1;
+            //a.takeDamage(b.attack());
             System.out.println(b.name + " hit " + a.name + " for " + damage + " damage, " + a.name + " has " + (a.wornHelmet.DT + a.wornChestPlate.DT + a.wornPants.DT) + " DT and " + (a.wornHelmet.DR + a.wornChestPlate.DR + a.wornPants.DR) + " DR");
             System.out.println(a.name + " has " + a.health + " HP, " + b.name + " has " + b.health + " HP");
             if(a.isDead())

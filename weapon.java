@@ -22,22 +22,20 @@
             ammo-=1;
     }
 }*/
-public class Weapon
-{
+public class weapon {
     
-    double damageDelt;
+    double damageDealt;
     String weaponName;                      //Name of the weapon.
     String typeOfWeapon;                    //Type of Weapon
     double damage;                          //Damage per hit.
-    double numStrike;                       //Number of Strikes per Attack.
+    int numStrike;                          //Number of Strikes per Attack.
     double accuracy;                        //Accuracy between 1 through 100 for simplicity sake.
-    double durability;                      //Durability of the Weapon.
+    int durability;                         //Durability of the Weapon.
     boolean functional;                     //To see if the weapon is usable (used with durability).
     int levelOfWeapon;                      //Chance of a certain drop. I want to make this really interesting! When a new weapon is picked up it will be completely
                                             //          ...random but it will have many tiers depending on the rank of the character in the future.
     
-    public void weaponClass(String weaponName,String typeOfWeapon,double damage,double numStrike,double accuracy,double durability,boolean functional,int levelOfWeapon)
-    {
+    public void weaponClass(String weaponName, String typeOfWeapon, double damage, int numStrike, double accuracy, int durability, boolean functional, int levelOfWeapon) {
         this.weaponName=weaponName;
         this.typeOfWeapon=typeOfWeapon;
         this.damage=damage;
@@ -47,18 +45,15 @@ public class Weapon
         this.functional=functional;
         this.levelOfWeapon=levelOfWeapon;
     }
-    public double attack(String weaponName,double damage,double numStrike,double accuracy,double durability)
-    {
-        for (int x=0; x<numStrike; x++)
-        {
-            if ((accuracy/100)>Math.random())
-            {
-                System.out.println("It's a hit for "+damage+"!");
-                damageDelt=+damage;
+    
+    public double attack(String weaponName, double damage, int numStrike, double accuracy, int durability) {
+        for (int x = 0; x < numStrike; x++) {
+            if ((accuracy/100) > Math.random()) {
+                System.out.println("It's a hit for " + damage + "!");
+                damageDealt += damage;
                 durability();
             } else {
-                switch((int)(Math.random()*10))  
-                {
+                switch((int)(Math.random() * 10)) {
                     case 1:     System.out.println ("Failure!");                                break;
                     case 2:     System.out.println ("It's a big old miss!");                    break;
                     case 3:     System.out.println ("Try again!");                              break;
@@ -72,52 +67,20 @@ public class Weapon
                 }
             }
         }
-        return damageDelt;
+        return damageDealt;
     }
-    private void durability()
-    {
+    
+    private void durability() {
         durability--;
-        if (durability>0)
-        {
-            System.out.print("Durability of your weapon decreases by 1,/nIt's now "+durability+".");
+        if (durability > 0) {
+            System.out.print("Durability of your weapon decreases by 1,/nIt's now " + durability + ".");
         } else {
             broken();
         }
     }
-    private boolean broken()
-    {
-           System.out.println("Your weapon has broken!");
-           functional=false;
-           return functional;
+    
+    private void broken()  {
+           System.out.println("Your weapon broke!");
+           functional = false;
     }
 }
-    /*public String pickup(character a)
-    {
-        return a.weapon;
-            switch(level) {
-            case 1: 
-            int oneWeapons;
-            int weaponNumber = Math.random*oneWeapons;
-            
-            break;
-            int twoWeapons;
-            case 2:
-            break;
-            case 3:
-            break;
-            case 4:
-            break;
-            case 5:
-            break;
-            case 6:
-            break;
-            case 7:
-            break;
-            case 8:
-            break;
-            case 9:
-            break;
-            case 10:
-            break;
-        }
-    }*/

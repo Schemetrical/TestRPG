@@ -32,6 +32,7 @@ public class character
     {
         loseHealth((int)(Math.max(((1-(wornHelmet.DR + wornChestPlate.DR + wornPants.DR))*damage)-(wornHelmet.DT + wornChestPlate.DT + wornPants.DT), 2)));
     }
+    /*
     public int giveDamage()
     {
         int calculatedDamage = (int)((1.0 + (strength/200.0)) + wieldedWeapon.damage); 
@@ -39,6 +40,7 @@ public class character
             return (int)(calculatedDamage * 1.5);
         return calculatedDamage;
     }
+    */
     public boolean isDead()
     {
         if(health<=0)
