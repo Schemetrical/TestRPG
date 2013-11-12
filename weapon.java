@@ -3,9 +3,9 @@ public class weapon extends item
     public int damage;
     public int ammo;
     public double criticalChance;
-    public weapon(String name, int ammo, int damage, double criticalChance)
+    public weapon(String name, int ammo, int damage, int weight, double criticalChance)
     {
-        super(name);
+        super(name,weight);
         this.damage = damage;
         this.ammo = ammo;   // note that if ammo is set to -1 in subclassses, the weapon doesn't use ammo
         this.criticalChance = criticalChance;

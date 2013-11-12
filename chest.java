@@ -1,7 +1,7 @@
 public class chest extends armor
 {
-    public chest(String name, int DT, double DR)
+    public chest(String name, int weight, int DT, double DR)
     {
-        super(name, DT, DR);
+        super(name, weight, DT, DR);
     }
 }

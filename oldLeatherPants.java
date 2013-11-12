@@ -2,6 +2,6 @@ public class oldLeatherPants extends legs
 {
     public oldLeatherPants()
     {
-        super("Worn-out Leather Pants", 1, 0);
+        super("Worn-out Leather Pants", 3, 1, 0);
     }
 }
