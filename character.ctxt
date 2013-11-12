@@ -1,13 +1,44 @@
 #BlueJ class context
-comment0.params=name\ health\ strength\ dexterity\ luck\ wisdom
-comment0.target=character(java.lang.String,\ int,\ int,\ int,\ int,\ int)
+comment0.params=name\ health\ strength\ defense\ dexterity\ luck\ wisdom\ level
+comment0.target=character(java.lang.String,\ int,\ int,\ int,\ int,\ int,\ int,\ int)
 comment1.params=hitpoints
 comment1.target=void\ loseHealth(int)
+comment10.params=a
+comment10.target=int\ addStat(int)
+comment11.params=a
+comment11.target=void\ useItem(item)
+comment12.params=a
+comment12.target=void\ equipItem(weapon)
+comment13.params=a
+comment13.target=void\ equipItem(chest)
+comment14.params=a
+comment14.target=void\ equipItem(head)
+comment15.params=a
+comment15.target=void\ equipItem(legs)
+comment16.params=
+comment16.target=double\ totalDR()
+comment17.params=
+comment17.target=double\ totalDT()
 comment2.params=damage
 comment2.target=void\ takeDamage(int)
 comment3.params=
 comment3.target=boolean\ isDead()
 comment3.text=\n\ \ \ \ public\ int\ giveDamage()\n\ \ \ \ {\n\ \ \ \ \ \ \ \ int\ calculatedDamage\ \=\ (int)((1.0\ +\ (strength/200.0))\ +\ wieldedWeapon.damage);\ \n\ \ \ \ \ \ \ \ if(Math.random()\ <\=\ luck/400.0\ +\ wieldedWeapon.criticalChance)\n\ \ \ \ \ \ \ \ \ \ \ \ return\ (int)(calculatedDamage\ *\ 1.5);\n\ \ \ \ \ \ \ \ return\ calculatedDamage;\n\ \ \ \ }\n
 comment4.params=
+<<<<<<< HEAD
 comment4.target=void\ die()
 numComments=5
+=======
+comment4.target=boolean\ isDead()
+comment5.params=
+comment5.target=void\ die()
+comment6.params=a
+comment6.target=void\ addItem(item)
+comment7.params=a
+comment7.target=void\ removeItem(java.lang.String)
+comment8.params=a
+comment8.target=void\ removeItem(int)
+comment9.params=
+comment9.target=void\ levelUp()
+numComments=18
+>>>>>>> 0b12a4816a2df03535612be131ea08821e81de59

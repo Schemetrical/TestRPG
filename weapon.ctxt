@@ -1,8 +1,15 @@
 #BlueJ class context
+<<<<<<< HEAD
 comment0.params=weaponName\ typeOfWeapon\ damage\ numStrike\ accuracy\ durability\ functional\ levelOfWeapon
 comment0.target=void\ weaponClass(java.lang.String,\ java.lang.String,\ double,\ int,\ double,\ int,\ boolean,\ int)
 comment1.params=weaponName\ damage\ numStrike\ accuracy\ durability
 comment1.target=double\ attack(java.lang.String,\ double,\ int,\ double,\ int)
+=======
+comment0.params=name\ ammo\ damage\ weight\ criticalChance
+comment0.target=weapon(java.lang.String,\ int,\ int,\ int,\ double)
+comment1.params=
+comment1.target=boolean\ canUseAmmo()
+>>>>>>> 0b12a4816a2df03535612be131ea08821e81de59
 comment2.params=
 comment2.target=void\ durability()
 comment3.params=
