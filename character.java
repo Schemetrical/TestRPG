@@ -127,40 +127,36 @@ public class character
         
     }
     
-    public void equipItem(weapon a) {
-        
-        if(!(wieldedWeapon == null))
-            //inventory.add(wieldedWeapon);
-        wieldedWeapon = a;
-        //removeItem(a.name);
-        
-    }
-    
-    public void equipItem(chest a) {
-        
-        if(!(wornChestPlate == null))
-            inventory.add(wornChestPlate);        
-        wornChestPlate = a;
-        removeItem(a.name);
-        
-    }
-    
-    public void equipItem(head a) {
-
-        if(!(wornHelmet == null))
-            inventory.add(wornHelmet);        
-        wornHelmet = a;
-        removeItem(a.name);
-        
-    }
-    
-    public void equipItem(legs a) {
-        
-        if(!(wornPants == null))
-            inventory.add(wornPants);        
-        wornPants = a;
-        removeItem(a.name);
-        
+   public void equipItem(item a)
+    {
+        if(a instanceof legs)
+        {
+            if(wornPants != null)
+                inventory.add(wornPants);        
+            wornPants = (legs)a; // cast the item to the proper class
+            removeItem(a.name);
+        }
+        else if(a instanceof head)
+        {
+            if(wornHelmet != null)
+                inventory.add(wornHelmet);        
+            wornHelmet = (head)a;
+            removeItem(a.name);
+        }
+        else if(a instanceof chest)
+        {
+            if(!(wornChestPlate == null))
+                inventory.add(wornChestPlate);        
+            wornChestPlate = (chest)a;
+            removeItem(a.name);
+        }
+        else if(a instanceof weapon)
+        {
+            if(wieldedWeapon != null)
+                //inventory.add(wieldedWeapon);
+            wieldedWeapon = (weapon)a;
+            //removeItem(a.name);
+        }
     }
     
     public double totalDR() {
