@@ -46,25 +46,11 @@ public class character
     public void takeDamage(int damage) {
         loseHealth((int)(Math.max((1.0-totalDR())*damage-totalDT(), 2.0)));
     }
-<<<<<<< HEAD
-    /*
-    public int giveDamage()
-    {
-        int calculatedDamage = (int)((1.0 + (strength/200.0)) + wieldedWeapon.damage); 
-        if(Math.random() <= luck/400.0 + wieldedWeapon.criticalChance)
-            return (int)(calculatedDamage * 1.5);
-        return calculatedDamage;
-    }
-    */
-    public boolean isDead()
-    {
-=======
-    
     public int giveDamage() {
         if (Math.random()*100 < dexterity /*- wieldedWeapon.weight*/){
             
             int calculatedDamage = (int)(1.0 + (strength/200.0) + wieldedWeapon.damage); 
-            if(Math.random() <= luck/400.0 + wieldedWeapon.criticalChance)
+            if(Math.random() <= luck/400.0/* + wieldedWeapon.criticalChance*/)
                 return (int)(calculatedDamage * 1.5);
             
             return calculatedDamage;
@@ -74,7 +60,6 @@ public class character
     }
     
     public boolean isDead() {
->>>>>>> 0b12a4816a2df03535612be131ea08821e81de59
         if(health<=0)
             return true;
         return false;
@@ -145,9 +130,9 @@ public class character
     public void equipItem(weapon a) {
         
         if(!(wieldedWeapon == null))
-            inventory.add(wieldedWeapon);
+            //inventory.add(wieldedWeapon);
         wieldedWeapon = a;
-        removeItem(a.name);
+        //removeItem(a.name);
         
     }
     
