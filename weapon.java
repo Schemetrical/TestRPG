@@ -1,6 +1,35 @@
-public class weapon extends item {
+// changed it back to original and added weight. Right now, only weight is a deciding factor in accuracy.
+// if you want a weapon to have another var that is used to calculate accuracy, perhaps add some sort of accuracy coefficient?
+public class weapon extends item
+{
+    public int damage;
+    public int ammo;
+    public double criticalChance;
+    // public double accuracyCoefficient;
+    public weapon(String name, int weight, int ammo, int damage, double criticalChance/*, double accuracyCoefficient*/)
+    {
+        super(name, weight);
+        this.damage = damage;
+        this.ammo = ammo;   // note that if ammo is set to -1 in subclassses, the weapon doesn't use ammo
+        this.criticalChance = criticalChance;
+        // this.accuracyCoefficient = accuracyCoefficient;
+    }
+    public boolean canUseAmmo() //check if ammo can be used
+    {
+        if(ammo > 0 || ammo == -1)
+            return true;
+        return false;
+    }
+    public void useAmmo()   // use ammo
+    {
+        if(canUseAmmo() && ammo > 0)
+            ammo-=1;
+    }
+}
+/*
+Sam's Old Code
+public class weapon extends item{
     double damageDealt;
-    String weaponName;                      //Name of the weapon.
     String typeOfWeapon;                    //Type of Weapon
     double damage;                          //Damage per hit.
     int numStrike;                          //Number of Strikes per Attack.
@@ -9,8 +38,8 @@ public class weapon extends item {
     boolean functional;                     //To see if the weapon is usable (used with durability).
     int levelOfWeapon;                      //Chance of a certain drop. I want to make this really interesting! When a new weapon is picked up it will be completely
                                             //          ...random but it will have many tiers depending on the rank of the character in the future.
-    public void weaponClass(String weaponName, String typeOfWeapon, double damage, int numStrike, double accuracy, int durability, boolean functional, int levelOfWeapon) {
-        super(weaponName, 1);
+    public void weapon(String weaponName, int weight, String typeOfWeapon, double damage, int numStrike, double accuracy, int durability, boolean functional, int levelOfWeapon) {
+        super(weaponName, weight);
         this.typeOfWeapon = typeOfWeapon;
         this.damage = damage;
         this.numStrike = numStrike;
@@ -57,4 +86,4 @@ public class weapon extends item {
            System.out.println("Your weapon broke!");
            functional = false;
     }
-}
+}*/
