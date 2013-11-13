@@ -10,14 +10,13 @@ public class character
     public head wornHelmet;
     public chest wornChestPlate;
     public legs wornPants;
-    private int totalItems = 0;
     
     public character(String name, int health, int strength, int defense, int dexterity, int luck, int wisdom, int level)
     {
         this.name = name;
         this.health = health;
         this.strength = strength;
-        this.defense = defense
+        this.defense = defense;
         this.dexterity = dexterity;
         this.luck = luck;
         this.wisdom = wisdom;
@@ -29,7 +28,7 @@ public class character
         health -= hitpoints;
         if(health < 0) {
             health = 0;
-            die()
+            die();
         }
     }
     
@@ -55,15 +54,12 @@ public class character
     
     public void addItem(item newItem){
         inventory.add(newItem);
-        totalItems++;
     }
     
     public void removeItem(String item) {
-        for(int index = 0; index < totalItems; index++){
+        for(int index = 0; index < inventory.size(); index++){
             if(inventory.get(index).name.equals(item)){
-                
                 inventory.remove(index);
-                totalItems--;
                 break;
             }
         }

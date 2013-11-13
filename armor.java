@@ -4,7 +4,7 @@ public class armor extends item
     public double DR;
     public armor(String name, int weight, int DT, double DR)
     {
-        super(name,weight);
+        super(name, weight);
         this.DT = DT;
         this.DR = DR;
     }

@@ -1,29 +1,4 @@
-/*public class weapon extends item
-{
-    public int damage;
-    public int ammo;
-    public double criticalChance;
-    public weapon(String name, int ammo, int damage, int weight, double criticalChance)
-    {
-        super(name,weight);
-        this.damage = damage;
-        this.ammo = ammo;   // note that if ammo is set to -1 in subclassses, the weapon doesn't use ammo
-        this.criticalChance = criticalChance;
-    }
-    public boolean canUseAmmo() //check if ammo can be used
-    {
-        if(ammo > 0 || ammo == -1)
-            return true;
-        return false;
-    }
-    public void useAmmo()   // use ammo
-    {
-        if(canUseAmmo() && ammo > 0)
-            ammo-=1;
-    }
-}*/
-public class weapon {
-    
+public class weapon extends item {
     double damageDealt;
     String weaponName;                      //Name of the weapon.
     String typeOfWeapon;                    //Type of Weapon
@@ -34,21 +9,20 @@ public class weapon {
     boolean functional;                     //To see if the weapon is usable (used with durability).
     int levelOfWeapon;                      //Chance of a certain drop. I want to make this really interesting! When a new weapon is picked up it will be completely
                                             //          ...random but it will have many tiers depending on the rank of the character in the future.
-    
     public void weaponClass(String weaponName, String typeOfWeapon, double damage, int numStrike, double accuracy, int durability, boolean functional, int levelOfWeapon) {
-        this.weaponName=weaponName;
-        this.typeOfWeapon=typeOfWeapon;
-        this.damage=damage;
-        this.numStrike=numStrike;
-        this.accuracy=accuracy;
-        this.durability=durability;
-        this.functional=functional;
-        this.levelOfWeapon=levelOfWeapon;
+        super(weaponName, 1);
+        this.typeOfWeapon = typeOfWeapon;
+        this.damage = damage;
+        this.numStrike = numStrike;
+        this.accuracy = accuracy;
+        this.durability = durability;
+        this.functional = functional;
+        this.levelOfWeapon = levelOfWeapon;
     }
     
     public double attack(String weaponName, double damage, int numStrike, double accuracy, int durability) {
         for (int x = 0; x < numStrike; x++) {
-            if ((accuracy/100) > Math.random()) {
+            if ((accuracy / 100) > Math.random()) {
                 System.out.println("It's a hit for " + damage + "!");
                 damageDealt += damage;
                 durability();
