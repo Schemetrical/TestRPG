@@ -3,30 +3,21 @@ import java.util.ArrayList;
 public class character
 {
     public String name;
-    public int health;
-    public int dexterity;
-    public int strength;
-    public int luck;
-    public int level;
-    public int wisdom;
+    public int health, strength, defense, dexterity, luck, wisdom, level;
     public int baseHealth;
-    public int defense;
-    int[] stat = new int[5];
     public weapon wieldedWeapon;
     public ArrayList<item> inventory;
     public head wornHelmet;
     public chest wornChestPlate;
     public legs wornPants;
-    private int index = 0;
+    private int totalItems = 0;
     
     public character(String name, int health, int strength, int defense, int dexterity, int luck, int wisdom, int level)
     {
-        /*stat[0] = health;
-        stat[1] = strength;
-        stat[2] = dexterity;*/
         this.name = name;
         this.health = health;
         this.strength = strength;
+        this.defense = defense
         this.dexterity = dexterity;
         this.luck = luck;
         this.wisdom = wisdom;
@@ -35,89 +26,71 @@ public class character
     }
     
     public void loseHealth(int hitpoints) {
-        health-=hitpoints;
-        if(health<0)
+        health -= hitpoints;
+        if(health < 0) {
             health = 0;
-            
-        if(isDead())
-            die();
+            die()
+        }
     }
     
     public void takeDamage(int damage) {
-        loseHealth((int)(Math.max((1.0-totalDR())*damage-totalDT(), 2.0)));
+        loseHealth((int)(Math.max((1.0 - totalDR()) * damage-totalDT(), 2.0)));
     }
+    
     public int giveDamage() {
         if (Math.random()*100 < dexterity /*- wieldedWeapon.weight*/){
             
-            int calculatedDamage = (int)(1.0 + (strength/200.0) + wieldedWeapon.damage); 
+            int calculatedDamage = (int)(1.0 + (strength / 200.0) + wieldedWeapon.damage); 
             if(Math.random() <= luck/400.0/* + wieldedWeapon.criticalChance*/)
                 return (int)(calculatedDamage * 1.5);
             
             return calculatedDamage;
         }
         return 0;
-        
-    }
-    
-    public boolean isDead() {
-        if(health<=0)
-            return true;
-        return false;
     }
     
     public void die() {
         // to be defined
     }
     
-    public void addItem(item a){
-    
-        inventory.add(a);
-        index++;
-        
+    public void addItem(item newItem){
+        inventory.add(newItem);
+        totalItems++;
     }
     
-    public void removeItem(String a) {
-        
-        for(int i = 0; i<index;i++){
-            
-            if(inventory.get(i).name.equals(a)){
+    public void removeItem(String item) {
+        for(int index = 0; index < totalItems; index++){
+            if(inventory.get(index).name.equals(item)){
                 
-                inventory.remove(i);
-                index--;
+                inventory.remove(index);
+                totalItems--;
                 break;
-                
             }
-            
         }
-        
-    }
-    
-    public void removeItem(int a) {
-        
-        inventory.remove(a);
-        index--;
-        
     }
     
     public void levelUp() {
-        
         level++;
-        addStat(baseHealth);
-        addStat(strength);
-        addStat(dexterity);
-        addStat(luck);
-        addStat(defense);
-        addStat(wisdom);
-        
+        addStat(0, "baseHealth");
+        addStat(0, "strength");
+        addStat(0, "dexterity");
+        addStat(0, "luck");
+        addStat(0, "defense");
+        addStat(0, "wisdom");
     }
     
-    public int addStat(int a) {
-        
-        if(Math.random()*100 <= 50)
-            return a+1;
-        
-        return a;
-        
+    public void addStat(int amount, String stat) {
+        if(amount == 0){
+            if(Math.random() > 0.5) amount = 1;
+        }
+        switch(stat) {
+            case "baseHealth":  this.baseHealth++;
+            case "strength":    this.strength++;
+            case "dexterity":   this.dexterity++;
+            case "luck":        this.luck++;
+            case "defense":     this.defense++;
+            case "wisdom":      this.wisdom++;
+        }
     }
     
     public void useItem(item a) {
