@@ -1,5 +1,8 @@
-public class woodenStaff extends weapon {
-    public woodenStaff() {
-        super.weaponClass("Wooden Staff", "melee", 5.0, 1, 1.0, 20, true, 1);
+public class woodenStaff extends weapon
+{
+    public woodenStaff()
+    {
+        // Wooden Staff, 5kg, no ammo used, 10 damage, 0.00 bonus critical
+        super("Wooden Staff", 5, -1, 10, 0); // if ammo is -1, the weapon doesn't use ammo
     }
 }
