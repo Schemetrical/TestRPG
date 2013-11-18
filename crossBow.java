@@ -1,8 +1,8 @@
-public class crossBow extends weapon
+public class crossBow extends ranged
 {
     public crossBow(int ammo)
     {
-        // Wooden Crossbow, 3kg, uses ammo decided by constructor, 5 damage, 0.00 critical bonus)
-        super("Wooden Crossbow", 3, ammo, 5, 0);
+        // Wooden Crossbow, 3kg, uses ammo damage decided by constructor, 10 damage, 0.00 critical bonus)
+        super("Wooden Crossbow", 3, 10, 0, 0.5, ammo);
     }
 }

@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=name\ weight\ damage\ criticalChance\ accuracy\ ammo
+comment0.target=ranged(java.lang.String,\ int,\ int,\ double,\ double,\ int)
+comment1.params=
+comment1.target=boolean\ canUseAmmo()
+comment2.params=
+comment2.target=void\ useAmmo()
+numComments=3

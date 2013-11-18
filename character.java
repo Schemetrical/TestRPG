@@ -10,6 +10,7 @@ public class character
     public head wornHelmet;
     public chest wornChestPlate;
     public legs wornPants;
+    public boolean isDead;
     
     public character(String name, int health, int strength, int defense, int dexterity, int luck, int wisdom, int level)
     {
@@ -33,7 +34,7 @@ public class character
     }
     
     public void takeDamage(int damage) {
-        loseHealth((int)(Math.max((1.0 - totalDR()) * damage-totalDT(), 2.0)));
+        loseHealth((int)(Math.max((1.0 - characterDR()) * damage - characterDT(), 2.0)));
     }
     
     public int giveDamage() {
@@ -49,6 +50,7 @@ public class character
     }
     
     public void die() {
+        this.isDead = true;
         // to be defined
     }
     
@@ -96,12 +98,12 @@ public class character
         
     }
     
-   public void equipItem(item a)
+    public void equipItem(item a)
     {
         if(a instanceof legs)
         {
             if(wornPants != null)
-                inventory.add(wornPants);        
+                inventory.add(wornPants);
             wornPants = (legs)a; // cast the item to the proper class
             removeItem(a.name);
         }
@@ -128,11 +130,11 @@ public class character
         }
     }
     
-    public double totalDR() {
+    public double characterDR() {
         return wornHelmet.DR + wornChestPlate.DR + wornPants.DR;
     }
     
-    public double totalDT() {
+    public double characterDT() {
         return wornHelmet.DT + wornChestPlate.DT + wornPants.DT;
     }
     

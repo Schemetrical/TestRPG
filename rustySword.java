@@ -1,8 +1,8 @@
-public class rustySword extends weapon
+public class rustySword extends melee
 {
     public rustySword()
     {
-        // Rusty Sword, 5kg, no ammo used, 10 damage, no critical
-        super("Rusty Sword", 5, -1, 10, 0); // if ammo is -1, the weapon doesn't use ammo
+        // Rusty Sword, 5kg, 10 damage, no critical, accurate, 1 hit per strike
+        super("Rusty Sword", 5, 10, 0, 1, 1);
     }
 }

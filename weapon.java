@@ -2,28 +2,17 @@
 // if you want a weapon to have another var that is used to calculate accuracy, perhaps add some sort of accuracy coefficient?
 public class weapon extends item
 {
+    public String name;
     public int damage;
     public int ammo;
     public double criticalChance;
-    // public double accuracyCoefficient;
-    public weapon(String name, int weight, int ammo, int damage, double criticalChance/*, double accuracyCoefficient*/)
+    public double accuracy;
+    public weapon(String name, int weight, int damage, double criticalChance, double accuracy)
     {
         super(name, weight);
         this.damage = damage;
-        this.ammo = ammo;   // note that if ammo is set to -1 in subclassses, the weapon doesn't use ammo
         this.criticalChance = criticalChance;
-        // this.accuracyCoefficient = accuracyCoefficient;
-    }
-    public boolean canUseAmmo() //check if ammo can be used
-    {
-        if(ammo > 0 || ammo == -1)
-            return true;
-        return false;
-    }
-    public void useAmmo()   // use ammo
-    {
-        if(canUseAmmo() && ammo > 0)
-            ammo-=1;
+        this.accuracy = accuracy;
     }
 }
 /*

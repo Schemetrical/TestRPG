@@ -1,8 +1,8 @@
-public class woodenStaff extends weapon
+public class woodenStaff extends melee
 {
     public woodenStaff()
     {
-        // Wooden Staff, 5kg, no ammo used, 10 damage, 0.00 bonus critical
-        super("Wooden Staff", 5, -1, 10, 0); // if ammo is -1, the weapon doesn't use ammo
+        // Wooden Staff, 5kg, 10 damage, 0.00 bonus critical, accurate, 2 hits per strike
+        super("Wooden Staff", 5, 10, 0, 0.75, 2); 
     }
 }
