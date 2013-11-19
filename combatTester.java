@@ -29,19 +29,21 @@ public class combatTester
         // now starting all the combat code from here
         System.out.println("BATTLE START: " + a.name + " has " + a.health + " HP, " + b.name + " has " + b.health + " HP");
         while(true) {
-            b.takeDamage(a.giveDamage());
-            System.out.println(a.name + " hit " + b.name + " for " + a.giveDamage() + " damage, " + b.name + " has " + b.characterDT() + " DT and " + b.characterDR() + " DR");
+            damage = a.giveDamage();
+            b.takeDamage(damage);
+            System.out.println(a.name + " hit " + b.name + " for " + damage + " damage, " + b.name + " has " + b.characterDT() + " DT and " + b.characterDR() + " DR");
             System.out.println(a.name + " has " + a.health + " HP, " + b.name + " has " + b.health + " HP");
             
-            if(b.isDead) {
+            if(b.health <= 0) {
                 System.out.println(a.name + " killed " + b.name + " with " + a.health + " HP Left.");
                 break;
             }
             
-            a.takeDamage(b.giveDamage());
-            System.out.println(b.name + " hit " + a.name + " for " + b.giveDamage() + " damage, " + a.name + " has " + a.characterDT() + " DT and " + a.characterDR() + " DR");
+            damage = b.giveDamage();
+            a.takeDamage(damage);
+            System.out.println(b.name + " hit " + a.name + " for " + damage + " damage, " + a.name + " has " + a.characterDT() + " DT and " + a.characterDR() + " DR");
             System.out.println(a.name + " has " + a.health + " HP, " + b.name + " has " + b.health + " HP");
-            if(a.isDead) {
+            if(a.health <= 0) {
                 System.out.println(b.name + " killed " + a.name + " with " + b.health + " HP Left.");
                 break;
             }

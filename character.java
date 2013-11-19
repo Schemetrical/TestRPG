@@ -10,7 +10,6 @@ public class character
     public head wornHelmet;
     public chest wornChestPlate;
     public legs wornPants;
-    public boolean isDead;
     
     public character(String name, int health, int strength, int defense, int dexterity, int luck, int wisdom, int level)
     {
@@ -34,11 +33,11 @@ public class character
     }
     
     public void takeDamage(int damage) {
-        loseHealth((int)(Math.max((1.0 - characterDR()) * damage - characterDT(), 2.0)));
+        loseHealth((int)Math.max((((1.0 - characterDR()) * damage) - characterDT()), 0));
     }
     
     public int giveDamage() {
-        if (Math.random()*100 < dexterity /*- wieldedWeapon.weight*/){
+        if (Math.random()*100 < (dexterity - wieldedWeapon.weight)){
             
             int calculatedDamage = (int)(1.0 + (strength / 200.0) + wieldedWeapon.damage); 
             if(Math.random() <= luck/400.0/* + wieldedWeapon.criticalChance*/)
@@ -50,7 +49,6 @@ public class character
     }
     
     public void die() {
-        this.isDead = true;
         // to be defined
     }
     
@@ -59,9 +57,9 @@ public class character
     }
     
     public void removeItem(String item) {
-        for(int index = 0; index < inventory.size(); index++){
-            if(inventory.get(index).name.equals(item)){
-                inventory.remove(index);
+        for(int i = 0; i < inventory.size(); i++){
+            if(inventory.get(i).name.equals(item)){
+                inventory.remove(i);
                 break;
             }
         }
@@ -124,11 +122,12 @@ public class character
         else if(a instanceof weapon)
         {
             if(wieldedWeapon != null)
-                //inventory.add(wieldedWeapon);
+                inventory.add(wieldedWeapon);
             wieldedWeapon = (weapon)a;
-            //removeItem(a.name);
+            removeItem(a.name);
         }
     }
+    public void unequipItem(item a){}
     
     public double characterDR() {
         return wornHelmet.DR + wornChestPlate.DR + wornPants.DR;
